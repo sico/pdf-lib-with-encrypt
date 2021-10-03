@@ -1,7 +1,7 @@
 /* tslint:disable:ban-types */
 
-import { values as objectValues } from 'src/utils/objects';
 import PDFSecurity from 'src/core/security/PDFSecurity';
+import { values as objectValues } from 'src/utils/objects';
 
 export const backtick = (val: any) => `\`${val}\``;
 export const singleQuote = (val: any) => `'${val}'`;
