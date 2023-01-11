@@ -21,10 +21,10 @@
     "build": "yarn build:cjs && yarn build:es && yarn build:esm && yarn build:esm:min && yarn build:umd && yarn build:umd:min && yarn build:downlevel-dts",
     "build:cjs": "ttsc --module commonjs --outDir cjs",
     "build:es": "ttsc --module ES2015 --outDir es",
-    "build:esm": "rollup --config rollup.config.js --file dist/pdf-lib.esm.js --environment MODULE_TYPE:es",
-    "build:esm:min": "rollup --config rollup.config.js --file dist/pdf-lib.esm.min.js --environment MINIFY,MODULE_TYPE:es",
-    "build:umd": "rollup --config rollup.config.js --file dist/pdf-lib.js --environment MODULE_TYPE:umd",
-    "build:umd:min": "rollup --config rollup.config.js --file dist/pdf-lib.min.js --environment MINIFY,MODULE_TYPE:umd",
+    "build:esm": "rollup --config rollup.config.js --file dist/pdf-lib-with-encrypt.esm.js --environment MODULE_TYPE:es",
+    "build:esm:min": "rollup --config rollup.config.js --file dist/pdf-lib-with-encrypt.esm.min.js --environment MINIFY,MODULE_TYPE:es",
+    "build:umd": "rollup --config rollup.config.js --file dist/pdf-lib-with-encrypt.js --environment MODULE_TYPE:umd",
+    "build:umd:min": "rollup --config rollup.config.js --file dist/pdf-lib-with-encrypt.min.js --environment MINIFY,MODULE_TYPE:umd",
     "build:downlevel-dts": "rimraf ts3.4 && yarn downlevel-dts . ts3.4 && rimraf ts3.4/scratchpad",
     "scratchpad:start": "ttsc --build scratchpad/tsconfig.json --watch",
     "scratchpad:run": "node scratchpad/build/scratchpad/index.js",
@@ -39,7 +39,7 @@
   },
   "main": "cjs/index.js",
   "module": "es/index.js",
-  "unpkg": "dist/pdf-lib.min.js",
+  "unpkg": "dist/pdf-lib-with-encrypt.min.js",
   "types": "cjs/index.d.ts",
   "typesVersions": {
     "<=3.5": {
