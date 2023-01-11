@@ -85,7 +85,7 @@ export default class PDFDocument {
    *
    * For example:
    * ```js
-   * import { PDFDocument } from 'pdf-lib'
+   * import { PDFDocument } from 'pdf-lib-with-encrypt'
    *
    * // pdf=string
    * const base64 =
@@ -256,7 +256,7 @@ export default class PDFDocument {
    *
    * For example:
    * ```js
-   * import { PDFDocument } from 'pdf-lib'
+   * import { PDFDocument } from 'pdf-lib-with-encrypt'
    * import fontkit from '@pdf-lib/fontkit'
    *
    * const pdfDoc = await PDFDocument.create()
@@ -658,7 +658,7 @@ export default class PDFDocument {
    * const newPage = pdfDoc.addPage()
    *
    * // page=[number, number]
-   * import { PageSizes } from 'pdf-lib'
+   * import { PageSizes } from 'pdf-lib-with-encrypt'
    * const newPage1 = pdfDoc.addPage(PageSizes.A7)
    * const newPage2 = pdfDoc.addPage(PageSizes.Letter)
    * const newPage3 = pdfDoc.addPage([500, 750])
@@ -694,7 +694,7 @@ export default class PDFDocument {
    * const newPage = pdfDoc.insertPage(2)
    *
    * // page=[number, number]
-   * import { PageSizes } from 'pdf-lib'
+   * import { PageSizes } from 'pdf-lib-with-encrypt'
    * const newPage1 = pdfDoc.insertPage(2, PageSizes.A7)
    * const newPage2 = pdfDoc.insertPage(0, PageSizes.Letter)
    * const newPage3 = pdfDoc.insertPage(198, [500, 750])
@@ -946,7 +946,7 @@ export default class PDFDocument {
    * For example:
    * ```js
    * // font=StandardFonts
-   * import { StandardFonts } from 'pdf-lib'
+   * import { StandardFonts } from 'pdf-lib-with-encrypt'
    * const font1 = await pdfDoc.embedFont(StandardFonts.Helvetica)
    *
    * // font=string
@@ -1007,7 +1007,7 @@ export default class PDFDocument {
    * Embed a standard font into this document.
    * For example:
    * ```js
-   * import { StandardFonts } from 'pdf-lib'
+   * import { StandardFonts } from 'pdf-lib-with-encrypt'
    * const helveticaFont = pdfDoc.embedFont(StandardFonts.Helvetica)
    * ```
    * @param font The standard font to be embedded.

@@ -7,7 +7,7 @@ import {
   degrees,
   rgb,
   values,
-} from 'pdf-lib';
+} from 'pdf-lib-with-encrypt';
 
 import { fetchAsset } from './assets';
 

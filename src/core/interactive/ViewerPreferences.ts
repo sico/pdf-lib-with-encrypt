@@ -413,7 +413,7 @@ class ViewerPreferences {
    *
    * For example:
    * ```js
-   * import { PDFDocument, NonFullScreenPageMode, PDFName } from 'pdf-lib'
+   * import { PDFDocument, NonFullScreenPageMode, PDFName } from 'pdf-lib-with-encrypt'
    *
    * const pdfDoc = await PDFDocument.create()
    *
@@ -447,7 +447,7 @@ class ViewerPreferences {
    *
    * For example:
    * ```js
-   * import { PDFDocument, ReadingDirection } from 'pdf-lib'
+   * import { PDFDocument, ReadingDirection } from 'pdf-lib-with-encrypt'
    *
    * const pdfDoc = await PDFDocument.create()
    * const viewerPrefs = pdfDoc.catalog.getOrCreateViewerPreferences()
@@ -468,7 +468,7 @@ class ViewerPreferences {
    *
    * For example:
    * ```js
-   * import { PDFDocument, PrintScaling } from 'pdf-lib'
+   * import { PDFDocument, PrintScaling } from 'pdf-lib-with-encrypt'
    *
    * const pdfDoc = await PDFDocument.create()
    * const viewerPrefs = pdfDoc.catalog.getOrCreateViewerPreferences()
@@ -489,7 +489,7 @@ class ViewerPreferences {
    *
    * For example:
    * ```js
-   * import { PDFDocument, Duplex } from 'pdf-lib'
+   * import { PDFDocument, Duplex } from 'pdf-lib-with-encrypt'
    *
    * const pdfDoc = await PDFDocument.create()
    * const viewerPrefs = pdfDoc.catalog.getOrCreateViewerPreferences()
@@ -528,7 +528,7 @@ class ViewerPreferences {
    *
    * For example:
    * ```js
-   * import { PDFDocument } from 'pdf-lib'
+   * import { PDFDocument } from 'pdf-lib-with-encrypt'
    *
    * const pdfDoc = await PDFDocument.create()
    * const viewerPrefs = pdfDoc.catalog.getOrCreateViewerPreferences()

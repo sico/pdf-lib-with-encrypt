@@ -130,7 +130,7 @@ _This example produces [this PDF](assets/pdfs/examples/create_document.pdf)._
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
+import { PDFDocument, StandardFonts, rgb } from 'pdf-lib-with-encrypt'
 
 // Create a new PDFDocument
 const pdfDoc = await PDFDocument.create()
@@ -171,7 +171,7 @@ _This example produces [this PDF](assets/pdfs/examples/modify_document.pdf)_ (wh
 
 <!-- prettier-ignore -->
 ```js
-import { degrees, PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import { degrees, PDFDocument, rgb, StandardFonts } from 'pdf-lib-with-encrypt';
 
 // This should be a Uint8Array or ArrayBuffer
 // This data can be obtained in a number of different ways
@@ -222,7 +222,7 @@ _This example produces [this PDF](assets/pdfs/examples/create_form.pdf)._
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 // Create a new PDFDocument
 const pdfDoc = await PDFDocument.create()
@@ -320,7 +320,7 @@ _This example produces [this PDF](assets/pdfs/examples/fill_form.pdf)_ (when [th
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 // These should be Uint8Arrays or ArrayBuffers
 // This data can be obtained in a number of different ways
@@ -429,7 +429,7 @@ _This example produces [this PDF](assets/pdfs/examples/flatten_form.pdf)_ (when 
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 // This should be a Uint8Array or ArrayBuffer
 // This data can be obtained in a number of different ways
@@ -477,7 +477,7 @@ _This example produces [this PDF](assets/pdfs/examples/copy_pages.pdf)_ (when [t
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 // Create a new PDFDocument
 const pdfDoc = await PDFDocument.create()
@@ -522,7 +522,7 @@ _This example produces [this PDF](assets/pdfs/examples/embed_png_and_jpeg_images
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 // These should be Uint8Arrays or ArrayBuffers
 // This data can be obtained in a number of different ways
@@ -580,7 +580,7 @@ _This example produces [this PDF](assets/pdfs/examples/embed_pdf_pages.pdf)_ (wh
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 // These should be Uint8Arrays or ArrayBuffers
 // This data can be obtained in a number of different ways
@@ -652,7 +652,7 @@ _This example produces [this PDF](assets/pdfs/examples/embed_font_and_measure_te
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument, rgb } from 'pdf-lib'
+import { PDFDocument, rgb } from 'pdf-lib-with-encrypt'
 import fontkit from '@pdf-lib/fontkit'
 
 // This should be a Uint8Array or ArrayBuffer
@@ -715,7 +715,7 @@ _This example produces [this PDF](assets/pdfs/examples/add_attachments.pdf)_ (wh
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 // These should be Uint8Arrays or ArrayBuffers
 // This data can be obtained in a number of different ways
@@ -764,7 +764,7 @@ _This example produces [this PDF](assets/pdfs/examples/set_document_metadata.pdf
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument, StandardFonts } from 'pdf-lib'
+import { PDFDocument, StandardFonts } from 'pdf-lib-with-encrypt'
 
 // Create a new PDFDocument
 const pdfDoc = await PDFDocument.create()
@@ -804,7 +804,7 @@ const pdfBytes = await pdfDoc.save()
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 // This should be a Uint8Array or ArrayBuffer
 // This data can be obtained in a number of different ways
@@ -853,7 +853,7 @@ import {
   PrintScaling,
   Duplex,
   PDFName,
-} from 'pdf-lib'
+} from 'pdf-lib-with-encrypt'
 
 // Create a new PDFDocument
 const pdfDoc = await PDFDocument.create()
@@ -912,7 +912,7 @@ const pdfBytes = await pdfDoc.save()
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 // This should be a Uint8Array or ArrayBuffer
 // This data can be obtained in a number of different ways
@@ -966,7 +966,7 @@ _This example produces [this PDF](assets/pdfs/examples/draw_svg_paths.pdf)_.
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument, rgb } from 'pdf-lib'
+import { PDFDocument, rgb } from 'pdf-lib-with-encrypt'
 
 // SVG path for a wavy line
 const svgPath =
@@ -1152,7 +1152,7 @@ When using a UMD build, you will have access to a global `window.PDFLib` variabl
 
 ```javascript
 // NPM module
-import { PDFDocument, rgb } from 'pdf-lib';
+import { PDFDocument, rgb } from 'pdf-lib-with-encrypt';
 
 // UMD module
 var PDFDocument = PDFLib.PDFDocument;
@@ -1179,7 +1179,7 @@ To register the `fontkit` instance:
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 import fontkit from '@pdf-lib/fontkit'
 
 const pdfDoc = await PDFDocument.create()
@@ -1224,7 +1224,7 @@ When working with PDFs, you will frequently come across the terms "character enc
 - **There are 14 standard fonts** defined in the PDF specification. They are as follows: _Times Roman_ (normal, bold, and italic), _Helvetica_ (normal, bold, and italic), _Courier_ (normal, bold, and italic), _ZapfDingbats_ (normal), and _Symbol_ (normal). These 14 fonts are guaranteed to be available in PDF readers. As such, you do not need to embed any font data if you wish to use one of these fonts. You can use a standard font like so:
   <!-- prettier-ignore -->
   ```js
-  import { PDFDocument, StandardFonts } from 'pdf-lib'
+  import { PDFDocument, StandardFonts } from 'pdf-lib-with-encrypt'
   const pdfDoc = await PDFDocument.create()
   const courierFont = await pdfDoc.embedFont(StandardFonts.Courier)
   const page = pdfDoc.addPage()
@@ -1236,7 +1236,7 @@ When working with PDFs, you will frequently come across the terms "character enc
 - **You can use characters outside the Latin alphabet** by embedding your own fonts. Embedding your own font requires to you load the font data (from a file or via a network request, for example) and pass it to the `embedFont` method. When you embed your own font, you can use any Unicode characters that it supports. This capability frees you from the limitations imposed by the standard fonts. Most PDF files use embedded fonts. You can embed and use a custom font like so ([see also](#embed-font-and-measure-text)):
   <!-- prettier-ignore -->
   ```js
-  import { PDFDocument } from 'pdf-lib'
+  import { PDFDocument } from 'pdf-lib-with-encrypt'
   import fontkit from '@pdf-lib/fontkit'
 
   const url = 'https://pdf-lib.js.org/assets/ubuntu/Ubuntu-R.ttf'
@@ -1288,7 +1288,7 @@ See the [form creation](#create-form) and [form filling](#fill-form) usage examp
 You can use an embedded font when filling form fields as follows:
 
 ```js
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument } from 'pdf-lib-with-encrypt';
 import fontkit from '@pdf-lib/fontkit';
 
 // Fetch the PDF with form fields
@@ -1411,7 +1411,7 @@ When an encrypted document is passed to `PDFDocument.load(...)`, an error will b
 
 <!-- prettier-ignore -->
 ```js
-import { PDFDocument, EncryptedPDFError } from 'pdf-lib'
+import { PDFDocument, EncryptedPDFError } from 'pdf-lib-with-encrypt'
 
 const encryptedPdfBytes = ...
 
@@ -1422,7 +1422,7 @@ const pdfDoc = PDFDocument.load(encryptedPdfBytes)
 This default behavior is usually what you want. It allows you to easily detect if a given document is encrypted, and it prevents you from trying to modify it. However, if you really want to load the document, you can use the `{ ignoreEncryption: true }` option:
 
 ```js
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument } from 'pdf-lib-with-encrypt'
 
 const encryptedPdfBytes = ...
 

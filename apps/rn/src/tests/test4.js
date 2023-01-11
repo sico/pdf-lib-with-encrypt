@@ -5,7 +5,7 @@ import {
   StandardFonts,
   rgb,
   degrees,
-} from 'pdf-lib';
+} from 'pdf-lib-with-encrypt';
 
 import { fetchAsset, writePdf } from './assets';
 

@@ -1,5 +1,5 @@
 import RNFetchBlob from 'rn-fetch-blob';
-import { encodeToBase64 } from 'pdf-lib';
+import { encodeToBase64 } from 'pdf-lib-with-encrypt';
 
 const PDF_PATH = `${RNFetchBlob.fs.dirs.DocumentDir}/out.pdf`;
 

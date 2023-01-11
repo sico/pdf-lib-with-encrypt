@@ -20,7 +20,7 @@ import {
   setLineJoin,
   StandardFonts,
   AFRelationship,
-} from 'pdf-lib';
+} from 'pdf-lib-with-encrypt';
 
 import { fetchAsset } from './assets';
 

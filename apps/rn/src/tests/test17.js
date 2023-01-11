@@ -8,7 +8,7 @@ import {
   PDFFont,
   drawEllipse,
   PDFWidgetAnnotation,
-} from 'pdf-lib';
+} from 'pdf-lib-with-encrypt';
 import fontkit from '@pdf-lib/fontkit';
 
 import { fetchAsset, writePdf } from './assets';

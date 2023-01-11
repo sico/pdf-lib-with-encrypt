@@ -1,4 +1,4 @@
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument } from 'pdf-lib-with-encrypt';
 
 import { fetchAsset, writePdf } from './assets';
 

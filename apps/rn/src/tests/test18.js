@@ -1,4 +1,4 @@
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument } from 'pdf-lib-with-encrypt';
 import fontkit from '@pdf-lib/fontkit';
 
 import { fetchAsset } from './assets';

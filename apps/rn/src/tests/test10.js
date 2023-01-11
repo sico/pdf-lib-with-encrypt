@@ -1,4 +1,4 @@
-import { PDFDocument, StandardFonts } from 'pdf-lib';
+import { PDFDocument, StandardFonts } from 'pdf-lib-with-encrypt';
 
 import { fetchAsset, writePdf } from './assets';
 
