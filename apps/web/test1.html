@@ -14,7 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="/apps/web/index.css" />
     <title>Test 1</title>
-    <script type="text/javascript" src="/dist/pdf-lib.js"></script>
+    <script
+      type="text/javascript"
+      src="/dist/pdf-lib-with-encrypt.esm.js"
+    ></script>
     <script type="text/javascript" src="/apps/web/utils.js"></script>
     <script
       type="text/javascript"
@@ -494,10 +497,10 @@
         fetchBinaryAsset('pdfs/normal.pdf'),
       ]);
 
-      const [
-        embeddedPage1,
-        embeddedPage2,
-      ] = await pdfDoc.embedPdf(normalPdfBytes, [0, 1]);
+      const [embeddedPage1, embeddedPage2] = await pdfDoc.embedPdf(
+        normalPdfBytes,
+        [0, 1],
+      );
       page4.drawPage(embeddedPage1, {
         x: 40,
         y: 100,

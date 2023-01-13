@@ -1,6 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
-import resolve from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import nodePolyfills from 'rollup-plugin-polyfill-node';
 import { terser } from 'rollup-plugin-terser';
 
@@ -52,8 +52,8 @@ export default {
   output: {
     name: 'PDFLib',
     format: MODULE_TYPE,
-    sourcemap: true,
+    sourcemap: false,
   },
   moduleContext: { "node_modules/crypto-js/core.js": "globalThis" },
-  plugins: [resolve(), nodePolyfills(), commonjs(), json(), MINIFY === 'true' && terser()],
+  plugins: [commonjs(), nodeResolve(), nodePolyfills(), json(), MINIFY === 'true' && terser()],
 };
