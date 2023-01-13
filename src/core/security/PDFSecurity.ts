@@ -1,5 +1,5 @@
 import CryptoJS from 'crypto-js';
-import saslprep from 'saslprep';
+// import saslprep from 'saslprep';
 import PDFDocument from '../../api/PDFDocument';
 import PDFDict from '../objects/PDFDict';
 import { LiteralObject } from '../PDFContext';
@@ -658,9 +658,9 @@ const processPasswordR2R3R4 = (password = '') => {
 };
 
 const processPasswordR5 = (password = '') => {
-  password = unescape(encodeURIComponent(saslprep(password)));
+  password = unescape(encodeURIComponent(password.normalize('NFKC')));
   const length = Math.min(127, password.length);
-  const out = Buffer.alloc(length);
+  const out = new Uint8Array(length);
 
   for (let i = 0; i < length; i++) {
     out[i] = password.charCodeAt(i);
@@ -668,6 +668,18 @@ const processPasswordR5 = (password = '') => {
 
   return CryptoJS.lib.WordArray.create(out as unknown as number[]);
 };
+
+// const processPasswordR5 = (password = '') => {
+//   password = unescape(encodeURIComponent(saslprep(password)));
+//   const length = Math.min(127, password.length);
+//   const out = Buffer.alloc(length);
+
+//   for (let i = 0; i < length; i++) {
+//     out[i] = password.charCodeAt(i);
+//   }
+
+//   return CryptoJS.lib.WordArray.create(out as unknown as number[]);
+// };
 
 const lsbFirstWord = (data: number): number =>
   ((data & 0xff) << 24) |

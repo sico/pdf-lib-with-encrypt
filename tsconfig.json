@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig-base.json",
   "compilerOptions": {
-    "module": "ES2015",
+    "module": "ESNext",
     "outDir": "es",
-    "target": "es5"
+    "target": "ES2022"
   }
 }
