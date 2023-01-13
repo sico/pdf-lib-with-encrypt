@@ -1,6 +1,6 @@
 import fontkit from '@pdf-lib/fontkit';
 import { Assets } from '..';
-import { ParseSpeeds, PDFDocument, rgb } from '../../../src';
+import { ParseSpeeds, PDFDocument, rgb } from '../../..';
 
 // This test loads an existing PDF document with many pages.
 // It inserts data for every page (images, rectangles, texts, embedded PDFs).
