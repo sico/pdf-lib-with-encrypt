@@ -638,8 +638,28 @@ const getEncryptedPermissionsR5 = (
   return CryptoJS.AES.encrypt(cipher, encryptionKey, options).ciphertext;
 };
 
+// const processPasswordR2R3R4 = (password = '') => {
+//   const out = new Uint8Array(32);
+//   const length = password.length;
+//   let index = 0;
+//   while (index < length && index < 32) {
+//     const code = password.charCodeAt(index);
+//     if (code > 0xff) {
+//       throw new Error('Password contains one or more invalid characters.');
+//     }
+//     out[index] = code;
+//     index++;
+//   }
+//   while (index < 32) {
+//     out[index] = PASSWORD_PADDING[index - length];
+//     index++;
+//   }
+//   return CryptoJS.lib.WordArray.create(out as unknown as number[]);
+// };
+
 const processPasswordR2R3R4 = (password = '') => {
-  const out = Buffer.alloc(32);
+  // const out = Buffer.alloc(32);
+  const out = new Uint8Array(32);
   const length = password.length;
   let index = 0;
   while (index < length && index < 32) {
