@@ -15,7 +15,7 @@ import {
   pushGraphicsState,
   toCharCode,
   typedArrayFor,
-} from 'src/index';
+} from '../../../src';
 
 describe(`PDFContentStream`, () => {
   const context = PDFContext.create();

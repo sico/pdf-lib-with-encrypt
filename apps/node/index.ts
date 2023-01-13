@@ -32,7 +32,7 @@ const cli = readline.createInterface({
 
 const prompt = `Press <enter> to run the next test...`;
 const promptToContinue = () =>
-  new Promise((resolve) => cli.question(prompt, (_answer) => resolve()));
+  new Promise<void>((resolve) => cli.question(prompt, (_answer) => resolve()));
 
 // This needs to be more sophisticated to work on Linux as well.
 const openPdf = (path: string, _reader?: string) => {

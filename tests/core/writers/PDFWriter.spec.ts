@@ -6,7 +6,7 @@ import {
   PDFRef,
   PDFWriter,
   typedArrayFor,
-} from 'src/index';
+} from '../../../src';
 
 const contentStreamText = `
   BT

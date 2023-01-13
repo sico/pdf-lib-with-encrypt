@@ -7,7 +7,7 @@ import {
   StandardFonts,
   rgb,
   degrees,
-} from '../../..';
+} from '../../../src';
 
 export default async (assets: Assets) => {
   const { pdfs, images } = assets;

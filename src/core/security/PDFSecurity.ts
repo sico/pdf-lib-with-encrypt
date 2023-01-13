@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js';
 import saslprep from 'saslprep';
-import PDFDocument from 'src/api/PDFDocument';
+import PDFDocument from '../../api/PDFDocument';
 import PDFDict from '../objects/PDFDict';
 import { LiteralObject } from '../PDFContext';
 
@@ -375,7 +375,7 @@ class PDFSecurity {
         return (buffer: Uint8Array) =>
           wordArrayToBuffer(
             CryptoJS.RC4.encrypt(
-              CryptoJS.lib.WordArray.create((buffer as unknown) as number[]),
+              CryptoJS.lib.WordArray.create(buffer as unknown as number[]),
               key,
             ).ciphertext,
           );
@@ -405,7 +405,7 @@ class PDFSecurity {
           .clone()
           .concat(
             CryptoJS.AES.encrypt(
-              CryptoJS.lib.WordArray.create((buffer as unknown) as number[]),
+              CryptoJS.lib.WordArray.create(buffer as unknown as number[]),
               key,
               options,
             ).ciphertext,
@@ -491,7 +491,7 @@ const getUserPasswordR3R4 = (
   const key = encryptionKey.clone();
   let cipher = CryptoJS.MD5(
     processPasswordR2R3R4().concat(
-      CryptoJS.lib.WordArray.create((documentId as unknown) as number[]),
+      CryptoJS.lib.WordArray.create(documentId as unknown as number[]),
     ),
   );
   for (let i = 0; i < 20; i++) {
@@ -503,7 +503,7 @@ const getUserPasswordR3R4 = (
     cipher = CryptoJS.RC4.encrypt(cipher, key).ciphertext;
   }
   return cipher.concat(
-    CryptoJS.lib.WordArray.create((null as unknown) as undefined, 16),
+    CryptoJS.lib.WordArray.create(null as unknown as undefined, 16),
   );
 };
 
@@ -545,7 +545,7 @@ const getEncryptionKeyR2R3R4 = (
     .clone()
     .concat(ownerPasswordEntry)
     .concat(CryptoJS.lib.WordArray.create([lsbFirstWord(permissions)], 4))
-    .concat(CryptoJS.lib.WordArray.create((documentId as unknown) as number[]));
+    .concat(CryptoJS.lib.WordArray.create(documentId as unknown as number[]));
   const round = r >= 3 ? 51 : 1;
   for (let i = 0; i < round; i++) {
     key = CryptoJS.MD5(key);
@@ -576,7 +576,7 @@ const getUserEncryptionKeyR5 = (
   const options = {
     mode: CryptoJS.mode.CBC,
     padding: CryptoJS.pad.NoPadding,
-    iv: CryptoJS.lib.WordArray.create((null as unknown) as undefined, 16),
+    iv: CryptoJS.lib.WordArray.create(null as unknown as undefined, 16),
   };
   return CryptoJS.AES.encrypt(encryptionKey, key, options).ciphertext;
 };
@@ -613,7 +613,7 @@ const getOwnerEncryptionKeyR5 = (
   const options = {
     mode: CryptoJS.mode.CBC,
     padding: CryptoJS.pad.NoPadding,
-    iv: CryptoJS.lib.WordArray.create((null as unknown) as undefined, 16),
+    iv: CryptoJS.lib.WordArray.create(null as unknown as undefined, 16),
   };
   return CryptoJS.AES.encrypt(encryptionKey, key, options).ciphertext;
 };
@@ -654,7 +654,7 @@ const processPasswordR2R3R4 = (password = '') => {
     out[index] = PASSWORD_PADDING[index - length];
     index++;
   }
-  return CryptoJS.lib.WordArray.create((out as unknown) as number[]);
+  return CryptoJS.lib.WordArray.create(out as unknown as number[]);
 };
 
 const processPasswordR5 = (password = '') => {
@@ -666,7 +666,7 @@ const processPasswordR5 = (password = '') => {
     out[i] = password.charCodeAt(i);
   }
 
-  return CryptoJS.lib.WordArray.create((out as unknown) as number[]);
+  return CryptoJS.lib.WordArray.create(out as unknown as number[]);
 };
 
 const lsbFirstWord = (data: number): number =>
@@ -693,38 +693,9 @@ const wordArrayToBuffer = (wordArray: WordArray): Uint8Array => {
   the password to exactly 32 bytes
 */
 const PASSWORD_PADDING = [
-  0x28,
-  0xbf,
-  0x4e,
-  0x5e,
-  0x4e,
-  0x75,
-  0x8a,
-  0x41,
-  0x64,
-  0x00,
-  0x4e,
-  0x56,
-  0xff,
-  0xfa,
-  0x01,
-  0x08,
-  0x2e,
-  0x2e,
-  0x00,
-  0xb6,
-  0xd0,
-  0x68,
-  0x3e,
-  0x80,
-  0x2f,
-  0x0c,
-  0xa9,
-  0xfe,
-  0x64,
-  0x53,
-  0x69,
-  0x7a,
+  0x28, 0xbf, 0x4e, 0x5e, 0x4e, 0x75, 0x8a, 0x41, 0x64, 0x00, 0x4e, 0x56, 0xff,
+  0xfa, 0x01, 0x08, 0x2e, 0x2e, 0x00, 0xb6, 0xd0, 0x68, 0x3e, 0x80, 0x2f, 0x0c,
+  0xa9, 0xfe, 0x64, 0x53, 0x69, 0x7a,
 ];
 
 export default PDFSecurity;
