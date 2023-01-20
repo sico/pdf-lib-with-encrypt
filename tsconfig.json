@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig-base.json",
-  "compilerOptions": {
-    "module": "ESNext",
-    "outDir": "es",
-    "target": "ES2022"
-  }
-}

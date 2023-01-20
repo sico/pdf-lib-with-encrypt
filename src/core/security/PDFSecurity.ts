@@ -708,7 +708,7 @@ const lsbFirstWord = (data: number): number =>
   ((data >> 24) & 0xff);
 
 const wordArrayToBuffer = (wordArray: WordArray): Uint8Array => {
-  const byteArray = [];
+  const byteArray: number[] = [];
   for (let i = 0; i < wordArray.sigBytes; i++) {
     byteArray.push(
       (wordArray.words[Math.floor(i / 4)] >> (8 * (3 - (i % 4)))) & 0xff,
