@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { openPdf, Reader } from './open';
 import { PDFDocument } from '../src/index';
 

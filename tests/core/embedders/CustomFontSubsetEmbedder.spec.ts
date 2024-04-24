@@ -1,5 +1,5 @@
-import fontkit from '@pdf-lib/fontkit';
-import fs from 'fs';
+import * as fontkit from '@pdf-lib/fontkit';
+import * as fs from 'fs';
 
 import {
   CustomFontSubsetEmbedder,

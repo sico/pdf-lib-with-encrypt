@@ -110,7 +110,7 @@ export default class PDFDocument {
    * const pdfDoc2 = await PDFDocument.load(dataUri)
    *
    * // pdf=Uint8Array
-   * import fs from 'fs'
+   * import * as fs from 'fs'
    * const uint8Array = fs.readFileSync('with_update_sections.pdf')
    * const pdfDoc3 = await PDFDocument.load(uint8Array)
    *
@@ -257,7 +257,7 @@ export default class PDFDocument {
    * For example:
    * ```js
    * import { PDFDocument } from 'pdf-lib-with-encrypt'
-   * import fontkit from '@pdf-lib/fontkit'
+   * import * as fontkit from '@pdf-lib/fontkit'
    *
    * const pdfDoc = await PDFDocument.create()
    * pdfDoc.registerFontkit(fontkit)
@@ -881,7 +881,7 @@ export default class PDFDocument {
    * })
    *
    * // attachment=Uint8Array
-   * import fs from 'fs'
+   * import * as fs from 'fs'
    * const uint8Array = fs.readFileSync('cat_riding_unicorn.jpg')
    * await pdfDoc.attach(uint8Array, 'cat_riding_unicorn.jpg', {
    *   mimeType: 'image/jpeg',
@@ -954,7 +954,7 @@ export default class PDFDocument {
    * const font3 = await pdfDoc.embedFont('data:font/opentype;base64,AAEAAA...')
    *
    * // font=Uint8Array
-   * import fs from 'fs'
+   * import * as fs from 'fs'
    * const font4 = await pdfDoc.embedFont(fs.readFileSync('Ubuntu-R.ttf'))
    *
    * // font=ArrayBuffer
@@ -1046,7 +1046,7 @@ export default class PDFDocument {
    * const image2 = await pdfDoc.embedJpg('data:image/jpeg;base64,/9j/4AAQ...')
    *
    * // jpg=Uint8Array
-   * import fs from 'fs'
+   * import * as fs from 'fs'
    * const uint8Array = fs.readFileSync('cat_riding_unicorn.jpg')
    * const image3 = await pdfDoc.embedJpg(uint8Array)
    *
@@ -1086,7 +1086,7 @@ export default class PDFDocument {
    * const image2 = await pdfDoc.embedPng('data:image/png;base64,iVBORw0KGg...')
    *
    * // png=Uint8Array
-   * import fs from 'fs'
+   * import * as fs from 'fs'
    * const uint8Array = fs.readFileSync('small_mario.png')
    * const image3 = await pdfDoc.embedPng(uint8Array)
    *

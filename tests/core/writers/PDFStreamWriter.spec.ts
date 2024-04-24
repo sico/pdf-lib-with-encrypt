@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 
 import { PDFContext, PDFName, PDFRef, PDFStreamWriter } from '../../../src';
 

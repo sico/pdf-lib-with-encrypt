@@ -1,6 +1,7 @@
-import fontkit, { Font, Glyph } from '@pdf-lib/fontkit';
-import fs from 'fs';
+import * as fontkit from '@pdf-lib/fontkit';
+import * as fs from 'fs';
 
+import { Font, Glyph } from '@pdf-lib/fontkit';
 import { createCmap } from '../../../src/core/embedders/CMap';
 import { byAscendingId, sortedUniq } from '../../../src/utils';
 

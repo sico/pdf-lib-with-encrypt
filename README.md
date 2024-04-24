@@ -653,7 +653,7 @@ _This example produces [this PDF](assets/pdfs/examples/embed_font_and_measure_te
 <!-- prettier-ignore -->
 ```js
 import { PDFDocument, rgb } from 'pdf-lib-with-encrypt'
-import fontkit from '@pdf-lib/fontkit'
+import * as fontkit from '@pdf-lib/fontkit'
 
 // This should be a Uint8Array or ArrayBuffer
 // This data can be obtained in a number of different ways
@@ -1059,7 +1059,7 @@ import {
   rgb,
   StandardFonts,
 } from 'https://cdn.skypack.dev/pdf-lib@^1.11.1?dts';
-import fontkit from 'https://cdn.skypack.dev/@pdf-lib/fontkit@^1.0.0?dts';
+import * as fontkit from 'https://cdn.skypack.dev/@pdf-lib/fontkit@^1.0.0?dts';
 
 const url = 'https://pdf-lib.js.org/assets/ubuntu/Ubuntu-R.ttf';
 const fontBytes = await fetch(url).then((res) => res.arrayBuffer());
@@ -1180,7 +1180,7 @@ To register the `fontkit` instance:
 <!-- prettier-ignore -->
 ```js
 import { PDFDocument } from 'pdf-lib-with-encrypt'
-import fontkit from '@pdf-lib/fontkit'
+import * as fontkit from '@pdf-lib/fontkit'
 
 const pdfDoc = await PDFDocument.create()
 pdfDoc.registerFontkit(fontkit)
@@ -1237,7 +1237,7 @@ When working with PDFs, you will frequently come across the terms "character enc
   <!-- prettier-ignore -->
   ```js
   import { PDFDocument } from 'pdf-lib-with-encrypt'
-  import fontkit from '@pdf-lib/fontkit'
+  import * as fontkit from '@pdf-lib/fontkit'
 
   const url = 'https://pdf-lib.js.org/assets/ubuntu/Ubuntu-R.ttf'
   const fontBytes = await fetch(url).then((res) => res.arrayBuffer())
@@ -1289,7 +1289,7 @@ You can use an embedded font when filling form fields as follows:
 
 ```js
 import { PDFDocument } from 'pdf-lib-with-encrypt';
-import fontkit from '@pdf-lib/fontkit';
+import * as fontkit from '@pdf-lib/fontkit';
 
 // Fetch the PDF with form fields
 const formUrl = 'https://pdf-lib.js.org/assets/dod_character.pdf';
