@@ -18,6 +18,7 @@ import {
   JpegEmbedder,
   PageBoundingBox,
   PageEmbeddingMismatchedContextError,
+  PDFArray,
   PDFCatalog,
   PDFContext,
   PDFDict,
@@ -66,6 +67,7 @@ import FileEmbedder, { AFRelationship } from '../core/embedders/FileEmbedder';
 import PDFEmbeddedFile from './PDFEmbeddedFile';
 import PDFJavaScript from './PDFJavaScript';
 import JavaScriptEmbedder from '../core/embedders/JavaScriptEmbedder';
+import { CipherTransformFactory } from '../core/crypto';
 import PDFSecurity, { SecurityOption } from '../core/security/PDFSecurity';
 /**
  * Represents a PDF document.
@@ -135,12 +137,14 @@ export default class PDFDocument {
       throwOnInvalidObject = false,
       updateMetadata = true,
       capNumbers = false,
+      password,
     } = options;
 
     assertIs(pdf, 'pdf', ['string', Uint8Array, ArrayBuffer]);
     assertIs(ignoreEncryption, 'ignoreEncryption', ['boolean']);
     assertIs(parseSpeed, 'parseSpeed', ['number']);
     assertIs(throwOnInvalidObject, 'throwOnInvalidObject', ['boolean']);
+    assertIs(password, 'password', ['string', 'undefined']);
 
     const bytes = toUint8Array(pdf);
     const context = await PDFParser.forBytesWithOptions(
@@ -149,7 +153,28 @@ export default class PDFDocument {
       throwOnInvalidObject,
       capNumbers,
     ).parseDocument();
-    return new PDFDocument(context, ignoreEncryption, updateMetadata);
+    if (
+      !!context.lookup(context.trailerInfo.Encrypt) &&
+      password !== undefined
+    ) {
+      // Decrypt
+      const fileIds = context.lookup(context.trailerInfo.ID, PDFArray);
+      const encryptDict = context.lookup(context.trailerInfo.Encrypt, PDFDict);
+      const decryptedContext = await PDFParser.forBytesWithOptions(
+        bytes,
+        parseSpeed,
+        throwOnInvalidObject,
+        capNumbers,
+        new CipherTransformFactory(
+          encryptDict,
+          (fileIds.get(0) as PDFHexString).asBytes(),
+          password,
+        ),
+      ).parseDocument();
+      return new PDFDocument(decryptedContext, true, updateMetadata);
+    } else {
+      return new PDFDocument(context, ignoreEncryption, updateMetadata);
+    }
   }
 
   /**
@@ -231,6 +256,12 @@ export default class PDFDocument {
 
     this.context = context;
     this.catalog = context.lookup(context.trailerInfo.Root) as PDFCatalog;
+    this.isEncrypted = !!context.lookup(context.trailerInfo.Encrypt);
+
+    if (!!context.lookup(context.trailerInfo.Encrypt) && context.isDecrypted) {
+      // context.delete(context.trailerInfo.Encrypt);
+      delete context.trailerInfo.Encrypt;
+    }
     this.isEncrypted = !!context.lookup(context.trailerInfo.Encrypt);
 
     this.pageCache = Cache.populatedBy(this.computePages);

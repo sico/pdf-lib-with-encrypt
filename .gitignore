@@ -1,9 +1,15 @@
+scratchpad/build/
+apps/node-build/
 node_modules/
-lib/
+coverage/
+ts3.4/
+build/
+dist/
+cjs/
+es/
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
-
+tsBuildInfo.json
+flamegraph.html
 yarn-error.log
 isolate*.log
 .DS_Store

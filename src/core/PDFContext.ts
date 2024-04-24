@@ -46,6 +46,7 @@ const byAscendingObjectNumber = (
 ) => a.objectNumber - b.objectNumber;
 
 class PDFContext {
+  isDecrypted = false;
   static create = () => new PDFContext();
 
   largestObjectNumber: number;
