@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { TreeNode } from '../../../src/core/structures/PDFPageTree';
 import {
   PDFArray,

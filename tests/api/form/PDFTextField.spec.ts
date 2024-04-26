@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { PDFDocument, TextAlignment, AnnotationFlags } from '../../../src';
 
 const fancyFieldsPdfBytes = fs.readFileSync('assets/pdfs/fancy_fields.pdf');

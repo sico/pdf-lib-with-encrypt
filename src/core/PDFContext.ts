@@ -1,4 +1,4 @@
-import pako from 'pako';
+import * as pako from 'pako';
 
 import PDFHeader from './document/PDFHeader';
 import { UnexpectedObjectTypeError } from './errors';
@@ -46,6 +46,7 @@ const byAscendingObjectNumber = (
 ) => a.objectNumber - b.objectNumber;
 
 class PDFContext {
+  isDecrypted = false;
   static create = () => new PDFContext();
 
   largestObjectNumber: number;

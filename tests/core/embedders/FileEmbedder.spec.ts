@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { PDFContext, PDFDict, PDFRef, FileEmbedder } from '../../../src';
 
 const catRidingUnicornJpg = fs.readFileSync(

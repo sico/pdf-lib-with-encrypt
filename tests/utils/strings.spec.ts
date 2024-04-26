@@ -1,6 +1,6 @@
-import fontkit from '@pdf-lib/fontkit';
+import * as fontkit from '@pdf-lib/fontkit';
 import { FontNames } from '@pdf-lib/standard-fonts';
-import fs from 'fs';
+import * as fs from 'fs';
 
 import { CustomFontEmbedder, StandardFontEmbedder } from '../../src/core';
 import { breakTextIntoLines } from '../../src/utils';
